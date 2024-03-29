@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:shimmer_auto_start="true">
+
+    <View
+        android:layout_width="@dimen/categories_width"
+        android:layout_height="@dimen/categories_height"
+        android:background="@drawable/shimmer_button_category"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        />
+    <View
+        android:layout_width="@dimen/categories_width"
+        android:layout_height="@dimen/categories_height"
+        android:background="@drawable/shimmer_button_category"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="116dp"
+        />
+    <View
+        android:layout_width="@dimen/categories_width"
+        android:layout_height="@dimen/categories_height"
+        android:background="@drawable/shimmer_button_category"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="216dp"
+        />
+    <View
+        android:layout_width="@dimen/categories_width"
+        android:layout_height="@dimen/categories_height"
+        android:background="@drawable/shimmer_button_category"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="316dp"
+        />
+
+</com.facebook.shimmer.ShimmerFrameLayout>

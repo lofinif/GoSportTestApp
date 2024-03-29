@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/categories_corner_radius"
+    app:cardElevation="6dp"
+    android:layout_marginEnd="8dp"
+    android:id="@+id/card_view_category">
+
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="@dimen/categories_width"
+        android:layout_height="@dimen/categories_height"
+        android:textColor="@color/button_category_default_text"
+        android:maxLength="10"
+        tools:text="Пицца"
+        android:gravity="center" />
+
+</androidx.cardview.widget.CardView>

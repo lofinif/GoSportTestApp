@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GoSportTestApp</string>
+    <string name="title_menu">Меню</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_cart">Корзина</string>
+    <string name="price">От 345 р</string>
+    <string name="city_moscow">Москва</string>
+    <string name="error">Ошибка</string>
+    <string name="try_again">Ещё раз</string>
+    <string name="no_internet_connection">Нет подключения к интернету</string>
+</resources>
