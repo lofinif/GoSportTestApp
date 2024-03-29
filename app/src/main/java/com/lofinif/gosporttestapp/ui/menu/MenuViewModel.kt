@@ -50,7 +50,6 @@ class MenuViewModel @Inject constructor(
     private val _postersFlow = MutableStateFlow(getAdsUseCase.listAdsPoster)
     val postersFlow = _postersFlow.asStateFlow()
 
-    @SuppressLint("CommitPrefEdits")
     fun fetchCategory(){
         _screenStateCategoryLiveData.value = MenuCategoryScreenState.Loading
         viewModelScope.launch {
@@ -72,7 +71,20 @@ class MenuViewModel @Inject constructor(
             } else {
                 _screenStateFoodLiveData.value = MenuFoodScreenState.Error
                 Log.e(TAG, "Couldn't reach server")
-                }
             }
         }
     }
+    private fun updateCategorySelection(category: CategoryModel) {
+        val categories = _screenStateCategoryLiveData.value as? MenuCategoryScreenState.Loaded
+        categories?.let { state ->
+            val newCategories = mutableListOf<CategoryModel>()
+            state.model.forEach {
+                val newCategory = if (it == category) it.copy(isSelected = true)
+                else it.copy(isSelected = false)
+                newCategories.add(newCategory)
+            }
+            _screenStateCategoryLiveData.value = MenuCategoryScreenState.Loaded(newCategories)
+        }
+    }
+}
+
