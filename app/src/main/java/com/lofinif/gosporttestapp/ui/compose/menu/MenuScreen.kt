@@ -221,7 +221,7 @@ fun ListCategoryItem(categoryModel: CategoryModel, viewModel: MenuViewModel){
             .height(32.dp)
             .clip(RoundedCornerShape(6.dp))
             .padding(top = 8.dp),
-        onClick = {viewModel.fetchFood(categoryModel.category)}
+        onClick = { viewModel.fetchFood(categoryModel)}
         ) {
         Text(
             text = categoryModel.category,
