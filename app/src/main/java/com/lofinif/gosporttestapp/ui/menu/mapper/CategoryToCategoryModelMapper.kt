@@ -10,5 +10,6 @@ class CategoryToCategoryModelMapper @Inject constructor(): BaseMapper<Category, 
         CategoryModel(
             id = item.idCategory,
             category = item.strCategory,
-    )
+            isSelected = false
+        )
 }
