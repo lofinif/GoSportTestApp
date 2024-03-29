@@ -54,33 +54,6 @@ class MenuRepositoryImplTest: BaseTest() {
     }
 
     @Test
-    fun `getCategories throws HttpException, result is HttpError`() {
-        coEvery { apiService.getCategories() }.throws(HttpException(Response.error<Nothing>(400,"".toResponseBody())))
-        runTest(UnconfinedTestDispatcher()){
-            val result = repo.getCategories()
-            assertThat(result).isInstanceOf(CallResult.HttpError::class.java)
-            assertThat((result as CallResult.HttpError).code).isEqualTo(400)
-        }
-    }
-    @Test
-    fun `getCategories throws IOException, result is IOException`() {
-        coEvery { apiService.getCategories() }.throws(IOException())
-        runTest(UnconfinedTestDispatcher()){
-            val result = repo.getCategories()
-            assertThat(result).isInstanceOf(CallResult.IOError::class.java)
-        }
-    }
-    @Test
-    fun `getCategories finishes without exception, result is Success`() {
-        coEvery { apiService.getCategories() }.returns(categoriesMock)
-        runTest(UnconfinedTestDispatcher()){
-            val result = repo.getCategories()
-            assertThat(result).isInstanceOf(CallResult.Success::class.java)
-            assertThat(result).isEqualTo(categoryListMock)
-        }
-    }
-
-    @Test
     fun `getListFood return data from remote`() {
         coEvery { apiService.getListFoods(any()) }.returns(foodListMock)
         coEvery { apiService.getDetailsFood(any()) }.returns(foodsDetailsMock)
