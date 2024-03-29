@@ -65,8 +65,8 @@ class MenuViewModel @Inject constructor(
     fun fetchFood(category: String){
         viewModelScope.launch {
             _screenStateFoodLiveData.value = MenuFoodScreenState.Loading
-            val response = getFoodListUseCase.invoke(category).map(mapperEntity::map)
-            if (response.isNotEmpty()){
+            val response = getFoodListUseCase.invoke(category.category).map(mapperEntity::map)
+            if (response.isNotEmpty()) {
                 _screenStateFoodLiveData.value = MenuFoodScreenState.Loaded(response)
             } else {
                 _screenStateFoodLiveData.value = MenuFoodScreenState.Error
