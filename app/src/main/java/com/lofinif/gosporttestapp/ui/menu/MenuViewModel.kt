@@ -62,7 +62,15 @@ class MenuViewModel @Inject constructor(
         }
     }
 
-    fun fetchFood(category: String){
+    fun tryAgain() {
+        val categoryState = _screenStateCategoryLiveData.value as? MenuCategoryScreenState.Loaded
+        categoryState?.let { categoryModel ->
+            fetchFood(categoryModel.model.first { it.isSelected })
+        }
+    }
+
+    fun fetchFood(category: CategoryModel) {
+        updateCategorySelection(category)
         viewModelScope.launch {
             _screenStateFoodLiveData.value = MenuFoodScreenState.Loading
             val response = getFoodListUseCase.invoke(category.category).map(mapperEntity::map)
