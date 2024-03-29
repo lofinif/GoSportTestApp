@@ -38,8 +38,6 @@ class MenuFragment : Fragment(), OnCategoryClickListener {
     @Inject
     lateinit var mapper: BaseMapper<Category, CategoryModel>
 
-    private var selectedCategory = ""
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -67,13 +65,11 @@ class MenuFragment : Fragment(), OnCategoryClickListener {
         viewModel.fetchCategory()
 
         binding?.menuError?.tryAgain?.setOnClickListener {
-            viewModel.fetchFood(selectedCategory)
+            viewModel.tryAgain()
         }
         binding?.categoryError?.tryAgain?.setOnClickListener {
             viewModel.fetchCategory()
         }
-
-        if (selectedCategory.isEmpty()) binding?.menuError?.tryAgain?.isVisible = false
     }
 
     private fun observeViewModel() {
@@ -129,8 +125,7 @@ class MenuFragment : Fragment(), OnCategoryClickListener {
     }
 
     override fun onCategoryClick(category: CategoryModel) {
-        viewModel.fetchFood(category.category)
-        selectedCategory = category.category
+        viewModel.fetchFood(category)
     }
 }
 
@@ -143,4 +138,3 @@ private fun RecyclerView.runWhenReady(action: () -> Unit) {
     }
     viewTreeObserver.addOnGlobalLayoutListener(globalLayoutListener)
 }
-
